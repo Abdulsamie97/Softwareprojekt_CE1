@@ -3,8 +3,9 @@
    <v-flex xs10 >
      <div class="white elevation-2">
        <v-toolbar flat dense class="cyan" dark>
-        <v-toolbar-title class="mr-4">Register</v-toolbar-title>
+        <v-toolbar-title class="mr-4">Login</v-toolbar-title>
        </v-toolbar>
+
        <div class="pl-4 pr-4 pt-2 pb-2">
         <v-text-field
           label="Email"
@@ -23,16 +24,15 @@
         <br>
         <v-btn
           class="cyan" dark
-          @click="register">
-          Register
+          @click="login">
+          Login
         </v-btn>
        </div>
      </div>
    </v-flex>
  </v-layout>
- </template>
+</template>
 
-<!-- watch and mounted shows how two-way binding on v model works for input boxes-->
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 
@@ -44,20 +44,10 @@ export default {
       error: null
     }
   },
-  watch: {
-    email (value) {
-      console.log('email has changed', value)
-    }
-  },
-  /* mounted () {
-    setTimeout(() => {
-      this.email = 'hello World'
-    }, 2000)
-  }, */
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -68,7 +58,6 @@ export default {
       }
     }
   }
-
 }
 </script>
 
@@ -76,5 +65,4 @@ export default {
 .error {
   color: red
 }
-
 </style>
