@@ -16,7 +16,7 @@
          dark
          :to="{
           name: 'songs'}">
-         Browser
+         MainBrowser
         </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
