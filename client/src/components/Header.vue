@@ -6,7 +6,7 @@
         tag="span"
         :to="{
           name: 'songs'}">
-        TabTracker
+        BaarTabTracker
         </router-link>
     </v-toolbar-title>
 
