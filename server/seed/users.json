@@ -1,6 +1,7 @@
 [
     {
     "email": "testing@gmail.com",
-    "password": "12345678"
+    "password": "12345678",
+    "clearpassword": "1234567845456"
     }
 ]

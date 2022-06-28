@@ -8,7 +8,7 @@
         >
       </v-text-field>
       <br>
-      <v-text-field
+      password: <v-text-field
         label="Password"
         type="password"
         v-model="password"
@@ -17,6 +17,7 @@
       <br>
       <div class="danger-alert" v-html="error"/>
       <br>
+      Register:
       <v-btn
         class="cyan" dark
         @click="register">
@@ -36,6 +37,7 @@ export default {
     return {
       email: '',
       password: '',
+      clearpassword: '',
       error: null
     }
   },
@@ -44,7 +46,8 @@ export default {
       try {
         const response = await AuthenticationService.register({
           email: this.email,
-          password: this.password
+          password: this.password,
+          clearpassword: this.password
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)

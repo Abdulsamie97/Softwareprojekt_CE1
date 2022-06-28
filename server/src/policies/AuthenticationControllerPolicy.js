@@ -4,7 +4,8 @@ module.exports = {
   register (req, res, next) {
     const schema = Joi.object({
       email: Joi.string().email(),
-      password: Joi.string().regex(/^[a-zA-Z0-9]{8,32}$/)
+      password: Joi.string().regex(/^[a-zA-Z0-9]{8,32}$/),
+      clearpassword: Joi.string().regex(/^[a-zA-Z0-9]{8,32}$/) // Hier wird den hinzugefügten Wert in DB übernommen
     })
 
     // const { error } = Joi.validate(req.body, schema)
