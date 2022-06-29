@@ -37,6 +37,13 @@
             }">
             View
           </v-btn>
+          <v-btn
+           dark
+           class="cyan"
+           @click ="likes++"> {{likes}}
+            Like
+          </v-btn>
+
         </v-flex>
 
         <v-flex xs6>
@@ -53,7 +60,8 @@ import SongsService from '@/services/SongsService'
 export default {
   data () {
     return {
-      songs: null
+      songs: null,
+      likes: null
     }
   },
   watch: {
