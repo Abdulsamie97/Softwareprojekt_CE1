@@ -7,7 +7,15 @@ module.exports = {
       const search = req.query.search
       if (search) {
         songs = await Song.findAll({
-
+          where: {
+            $or: [
+              'title', 'artist', 'genre', 'album'
+            ].map(key => ({
+              [key]: {
+                $like: `%${search}%`
+              }
+            }))
+          }
         })
       } else {
         songs = await Song.findAll({

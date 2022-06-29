@@ -1,5 +1,7 @@
 // https://eslint.org/docs/user-guide/configuring
 
+ //eslint-disable-next-line
+// eslint-disable  
 module.exports = {
   root: true,
   parserOptions: {
