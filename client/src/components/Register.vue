@@ -8,7 +8,7 @@
         >
       </v-text-field>
       <br>
-      password: <v-text-field
+      <v-text-field
         label="Password"
         type="password"
         v-model="password"
@@ -17,7 +17,6 @@
       <br>
       <div class="danger-alert" v-html="error"/>
       <br>
-      Register:
       <v-btn
         class="cyan" dark
         @click="register">
