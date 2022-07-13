@@ -18,6 +18,14 @@
           name: 'songs'}">
          MainBrowser
         </v-btn>
+        <v-btn
+         flat
+         dark
+         :to="{
+          name: 'BarChart'}">
+         BarChart
+        </v-btn>
+
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items>
@@ -56,7 +64,6 @@ export default {
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
-
       this.$router.push({
         name: 'songs'
       })
