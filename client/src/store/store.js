@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    favoritesList: null
   },
   mutations: {
     setToken (state, token) {
@@ -21,14 +22,28 @@ export default new Vuex.Store({
     },
     setUser (state, user) {
       state.user = user
+    },
+    setFavoritesList (state, favoritesList) {
+      state.favoritesList = favoritesList
     }
   },
   actions: {
-    setToken ({commit}, token) {
+    setToken ({ commit }, token) {
       commit('setToken', token)
     },
-    setUser ({commit}, user) {
+    setUser ({ commit }, user) {
       commit('setUser', user)
+    },
+    setFavoritesList ({ commit }, favoritesList) {
+      commit('setFavoritesList', favoritesList)
+    }
+  },
+  getters: {
+    getUserEmail (state) {
+      return state.user.email
+    },
+    getFavoritesList (state) {
+      return state.favoritesList
     }
   }
 })

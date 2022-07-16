@@ -1,11 +1,8 @@
 <template>
-  <panel title="Songs">
+  <panel title="Most Popular Songs" titleClass="amber accent-4">
     <v-btn
-      class="cyan"
+      class="amber accent-3"
       slot="action"
-      :to="{
-        name: 'songs-create'
-      }"
       dark
       medium
       absolute
@@ -13,10 +10,9 @@
       middle
       fab
     >
-      <v-icon>add</v-icon>
+      <v-icon>star</v-icon>
     </v-btn>
-
-    <div v-for="song in songs" :key="song.id">
+    <div v-for="song in popularSongs" :key="song.id">
       <v-layout>
         <v-flex xs6>
           <div class="song-title">
@@ -70,7 +66,7 @@ import FavoritesService from '@/services/FavoritesService'
 export default {
   data () {
     return {
-      songs: null,
+      popularSongs: null,
       userEmail: this.$store.getters['getUserEmail'],
       favoritesList: this.$store.getters['getFavoritesList']
     }
@@ -79,7 +75,7 @@ export default {
     '$route.query.search': {
       immediate: true,
       async handler (value) {
-        this.songs = (await SongsService.index(value)).data
+        this.popularSongs = (await FavoritesService.getPopularSongs()).data
       }
     }
   },
