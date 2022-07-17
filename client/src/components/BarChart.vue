@@ -12,8 +12,7 @@
 
         <v-flex xs6>
           <div class="lyricsLength">
-          {{song.lyrics}}
-
+          {{song.lyrics}}  bla {{lenPerSong[song.title]}}
           </div>
         </v-flex>
        </v-layout>
@@ -27,7 +26,8 @@ import SongsService from '@/services/SongsService'
 export default {
   data () {
     return {
-      songs: null
+      songs: null,
+      lenPerSong: {}
     }
   },
   watch: {
@@ -35,9 +35,12 @@ export default {
       immediate: true,
       async handler (value) {
         this.songs = (await SongsService.index(value)).data
-        const arr = this.songs.lyrics.split(' ')
-        this.songs.lyrics = arr.filter(word => word !== ' ').length
-        console.log(this.arr[1])
+        // const arr = this.songs.lyrics.split(' ')
+        // this.songs.lyrics = arr.filter(word => word !== ' ').length
+        this.lenPerSong = this.songs.reduce(
+          (acc, cur, idx) => (acc = { ...acc, [cur.title]: cur.lyrics.length }),
+          {}
+        )
       }
     }
   }
@@ -63,4 +66,4 @@ export default {
   width: 70%;
   margin: 0 auto;
 }
-</style>
+</style> 
