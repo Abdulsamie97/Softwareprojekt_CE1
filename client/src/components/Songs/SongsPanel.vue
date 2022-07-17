@@ -40,7 +40,7 @@
           <v-btn
            dark
            class="cyan"
-           @click ="likes++"> {{likes}}
+           @click ="likes++"> {{Likes}}
             Like
           </v-btn>
 
@@ -56,6 +56,7 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+import likes from '@/services/like'
 
 export default {
   data () {
@@ -69,6 +70,7 @@ export default {
       immediate: true,
       async handler (value) {
         this.songs = (await SongsService.index(value)).data
+        this.likes = (await likes.index(value)).data
       }
     }
   }
