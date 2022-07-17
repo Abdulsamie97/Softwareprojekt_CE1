@@ -18,6 +18,13 @@
           name: 'songs'}">
          MainBrowser
         </v-btn>
+            <v-btn
+         flat
+         dark
+         :to="{
+          name: 'clicks'}">
+      clicks
+        </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items>
