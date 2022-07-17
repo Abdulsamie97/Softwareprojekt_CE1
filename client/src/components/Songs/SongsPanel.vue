@@ -1,5 +1,12 @@
 <template>
   <panel title="Songs">
+    <v-btn align="left" id="api"
+            dark
+            class="cyan"
+             :to="{
+          name: 'albums'}">
+          AddmyApi
+          </v-btn>
     <v-btn class="cyan"
       slot="action"
       :to="{
@@ -31,6 +38,7 @@
             class="cyan"
             :to="{
               name: 'song',
+              // geschickte Parameter an song
               params: {
                 songId: song.id
               }
@@ -38,7 +46,7 @@
             View
           </v-btn>
         </v-flex>
-
+        <!--zeigt das Albumbild-->
         <v-flex xs6>
           <img class="album-image" :src="song.albumImageUrl" />
         </v-flex>
@@ -84,5 +92,11 @@ export default {
 .album-image {
   width: 70%;
   margin: 0 auto;
+}
+#api{
+  float: right;
+  width: 10px;
+  border: 2px solid #73AD21;
+  padding: 5px;
 }
 </style>
