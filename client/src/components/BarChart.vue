@@ -12,7 +12,7 @@
 
         <v-flex xs6>
           <div class="lyricsLength">
-          {{song.lyrics}}  bla {{lenPerSong[song.title]}}
+          <!--{{song.lyrics}}-->  {{lenPerSong[song.lyrics]}}
           </div>
         </v-flex>
        </v-layout>
@@ -38,7 +38,7 @@ export default {
         // const arr = this.songs.lyrics.split(' ')
         // this.songs.lyrics = arr.filter(word => word !== ' ').length
         this.lenPerSong = this.songs.reduce(
-          (acc, cur, idx) => (acc = { ...acc, [cur.title]: cur.lyrics.length }),
+          (acc, cur, idx) => (acc = { ...acc, [cur.title]: cur.title.length }),
           {}
         )
       }
@@ -56,6 +56,9 @@ export default {
 .song-title {
   font-size: 30px;
 }
+.lyricsLength {
+  font-size: 15px;
+}
 .song-artist {
   font-size: 24px;
 }
@@ -66,4 +69,4 @@ export default {
   width: 70%;
   margin: 0 auto;
 }
-</style> 
+</style>
