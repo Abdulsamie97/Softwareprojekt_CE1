@@ -3,6 +3,7 @@
     <v-flex xs6>
       <songs-search-panel />
       <songs-panel class="mt-2" />
+      <popular-songs-panel class="mt-2" />
     </v-flex>
   </v-layout>
 </template>
@@ -11,9 +12,11 @@
 import SongsPanel from './SongsPanel'
 import SongsSearchPanel from './SongsSearchPanel'
 import SongsService from '@/services/SongsService'
+import PopularSongsPanel from './PopularSongsPanel'
 
 export default {
   components: {
+    PopularSongsPanel,
     SongsPanel,
     SongsSearchPanel
   },
