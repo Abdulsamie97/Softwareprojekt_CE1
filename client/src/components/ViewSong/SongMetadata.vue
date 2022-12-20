@@ -22,7 +22,7 @@
                 }
               }">
               EDIT
-            </v-btn>
+              </v-btn>
           </v-flex>
 
         <v-flex xs6>

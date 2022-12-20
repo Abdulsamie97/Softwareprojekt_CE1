@@ -37,6 +37,13 @@
             }">
             View
           </v-btn>
+          <v-btn
+           dark
+           class="cyan"
+           @click ="likes++"> {{Likes}}
+            Like
+          </v-btn>
+
         </v-flex>
 
         <v-flex xs6>
@@ -49,11 +56,13 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+import likes from '@/services/like'
 
 export default {
   data () {
     return {
-      songs: null
+      songs: null,
+      likes: null
     }
   },
   watch: {
@@ -61,6 +70,7 @@ export default {
       immediate: true,
       async handler (value) {
         this.songs = (await SongsService.index(value)).data
+        this.likes = (await likes.index(value)).data
       }
     }
   }

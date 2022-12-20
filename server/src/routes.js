@@ -2,6 +2,7 @@ const AuthenticationController = require('./controllers/AuthenticationController
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const SongsController = require('./controllers/SongsController')
 const BookmarksController = require('./controllers/BookmarksController')
+const LikesController = require('./controllers/LikesController')
 
 module.exports = (app) => {
 // register endpoint which takes a postrequest
@@ -20,6 +21,15 @@ module.exports = (app) => {
     SongsController.put)
   app.post('/songs',
     SongsController.post)
+
+  app.get('/likes',
+    LikesController.index)
+  app.get('/likes/:userId',
+    LikesController.show)
+  app.get('/likes/:userId',
+    LikesController.put)
+  app.get('/likes',
+    LikesController.post)
 
   app.get('/bookmarks',
     BookmarksController.index)

@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true
     },
+    likes: {
+      type: DataTypes.INTEGER,
+      unique: true
+    },
     password: DataTypes.STRING
   }, {
     hooks: {
